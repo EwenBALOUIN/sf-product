@@ -110,7 +110,7 @@ class ProductController extends Controller
         ->add('confirm', Type\CheckboxType::class, [
             'label' => 'You really want to delete this item ?'
             ])
-            ->add('submit', Type\SubmitType::class)
+            //->add('submit', Type\SubmitType::class)
             ->getForm();
             $form->handleRequest($request);
             if ($form->isSubmitted() && $form->isValid())

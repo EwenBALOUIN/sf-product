@@ -4,14 +4,14 @@
     <h1>Product Details</h1>
     <hr>
     <p class="text-right">
-        <a  class="btn btn-warning btn-sm" href="{{ path('product_edit',{'id': product.id}) }}">Edit</a>
+        <a  class="btn btn-warning btn-sm" href="{{ path('product_update',{'id': product.id}) }}">Edit</a>
         <a  class="btn btn-danger btn-sm" href="{{ path('product_delete',{'id': product.id}) }}">Delete</a>
     </p>
     <table class="table table-borderless">
         <tbody>
             <tr>
                 <th scope="row">#</th>
-                <td>1</td>
+                <td>{{product.id}}</td>
             </tr>
             <tr>
                 <th scope="row">Designation</th>
@@ -46,7 +46,7 @@
             <tr>
                 <th scope="row">Description</th>
                 <td>
-                    {{product.decription}}
+                    {{product.description}}
                 </td>
             </tr>
         </tbody>
