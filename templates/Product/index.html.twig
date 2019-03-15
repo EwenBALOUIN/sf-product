@@ -4,7 +4,7 @@
         <h1>Products list</h1>
         <hr>
         <p class="text-right">
-            <a href="#" class="btn btn-success">New product</a>
+            <a href="{{ path('product_create')}}" class="btn btn-success">New product</a>
         </p>
 {% for product in products %}
 
@@ -26,7 +26,7 @@
             <tr>
                 <th scope="row">{{ product.id }}</th>
                 <td>
-                    <a href="#">{{ product.designation }}</a>
+                    <a href="{{ path('product_update',{'id': product.id})}}">{{ product.designation }}</a>
                 </td>
                 <td>{{ product.reference }}</td>
                 <td>{{ product.brand }}</td>
@@ -40,8 +40,8 @@
                     {% endif %}
                 </td>
                 <td>
-                    <a href="#" class="btn btn-warning btn-sm" href="{{ path('product_edit',{'id': product.id}) }}">Edit</a>
-                    <a href="#" class="btn btn-danger btn-sm" href="{{ path('product_delete',{'id': product.id}) }}">Delete</a>
+                    <a class="btn btn-warning btn-sm" href="{{ path('product_update',{'id': product.id}) }}">Edit</a>
+                    <a class="btn btn-danger btn-sm" href="{{ path('product_delete',{'id': product.id}) }}">Delete</a>
                 </td>
             </tr>
             {% endfor %}

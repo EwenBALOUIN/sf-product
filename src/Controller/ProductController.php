@@ -22,7 +22,7 @@ class ProductController extends Controller
         ->findAll();
         return $this->render('Product/index.html.twig',['products' => $product,]);
     }
-
+    
     /**
     * @Route("/product/create",name="product_create")
     */
@@ -99,28 +99,28 @@ class ProductController extends Controller
         }
         return $product;
     }
-    // /**
-    // * @Route("/customer/delete/{id}",name="customer_delete")
-    // */
-    // public function delete(Request $request)
-    // {
-    //     $customer =$this->findCustomer($request);
-    //     $form = $this
-    //     ->createFormBuilder()
-    //     ->add('confirm', Type\CheckboxType::class, [
-    //         'label' => 'Confirmer la suppression ?'
-    //     ])
-    //     ->add('submit', Type\SubmitType::class)
-    //     ->getForm();
-    //     $form->handleRequest($request);
-    //     if ($form->isSubmitted() && $form->isValid())
-    //     {
-    //         $em = $this->getDoctrine()->getManager();
-    //         $em -> remove($customer);
-    //         $em -> flush();
-    //         $this->addFlash('success','Le client a bien été supprimé.');
-    //         return $this->redirectToRoute('customer_index');
-    //     }
-    //     return $this->render('Customer/delete.html.twig',['form' => $form->createView(),]);
-    // }
-}
+    /**
+    * @Route("/product/{id}/delete",name="product_delete")
+    */
+    public function delete(Request $request)
+    {
+        $product =$this->findProduct($request);
+        $form = $this
+        ->createFormBuilder()
+        ->add('confirm', Type\CheckboxType::class, [
+            'label' => 'You really want to delete this item ?'
+            ])
+            ->add('submit', Type\SubmitType::class)
+            ->getForm();
+            $form->handleRequest($request);
+            if ($form->isSubmitted() && $form->isValid())
+            {
+                $em = $this->getDoctrine()->getManager();
+                $em -> remove($product);
+                $em -> flush();
+                $this->addFlash('success','Le product a bien été supprimé.');
+                return $this->redirectToRoute('product_index');
+            }
+            return $this->render('Product/delete.html.twig',['form' => $form->createView(),]);
+        }
+    }
