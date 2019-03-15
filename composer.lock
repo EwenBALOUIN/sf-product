@@ -5508,16 +5508,16 @@
         },
         {
             "name": "symfony/web-server-bundle",
-            "version": "v3.4.22",
+            "version": "v3.4.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/web-server-bundle.git",
-                "reference": "e01830ce1a9712991fb9e19cb0678ecdc3bd8519"
+                "reference": "c6809607bca68a5291ea9ca25a9108e78ef59648"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/web-server-bundle/zipball/e01830ce1a9712991fb9e19cb0678ecdc3bd8519",
-                "reference": "e01830ce1a9712991fb9e19cb0678ecdc3bd8519",
+                "url": "https://api.github.com/repos/symfony/web-server-bundle/zipball/c6809607bca68a5291ea9ca25a9108e78ef59648",
+                "reference": "c6809607bca68a5291ea9ca25a9108e78ef59648",
                 "shasum": ""
             },
             "require": {
@@ -5563,7 +5563,7 @@
             ],
             "description": "Symfony WebServerBundle",
             "homepage": "https://symfony.com",
-            "time": "2019-01-16T09:39:14+00:00"
+            "time": "2019-02-20T14:47:01+00:00"
         }
     ],
     "aliases": [],
