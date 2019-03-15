@@ -36,38 +36,38 @@ class ProductController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em -> persist($product);
             $em -> flush();
-            $this->addFlash('success','Le client a bien été sauvegardé.');
-            return $this->redirectToRoute('product_read',['id' => $product->getId()]);
+            $this->addFlash('success','Le produit a bien été sauvegardé.');
+            return $this->redirectToRoute('product_show',['id' => $product->getId()]);
         }
         return $this->render('Product/new.html.twig',['form' => $form->createView(),]);
     }
     
     /**
-    * @Route("/product/{id}",name="product_read")
+    * @Route("/product/{id}",name="product_show")
     */
-    public function read(Request $request)
+    public function show(Request $request)
     {
-        $product = $this->findCustomer($request);
-        return $this->render('Customer/read.html.twig',['product'=> $product,]);
+        $product = $this->findProduct($request);
+        return $this->render('Product/show.html.twig',['product'=> $product,]);
     }
     
-    // /**
-    // * @Route("/customer/update/{id}",name="customer_update")
-    // */
-    // public function update(Request $request)
-    // {
-    //     $customer =$this->findCustomer($request);
-    //     $form = $this->createCustomerForm($customer);
-    //     $form->handleRequest($request);
-    //     if ($form->isSubmitted() && $form->isValid())
-    //     {
-    //         $em = $this->getDoctrine()->getManager();
-    //         $em -> persist($customer);
-    //         $em -> flush();
-    //         return $this->redirectToRoute('customer_update', ['id'=> $customer->getId()]);
-    //     }
-    //     return $this->render('Customer/update.html.twig',['form' => $form->createView(),]);
-    // }
+    /**
+    * @Route("/product/{id}/update",name="product_update")
+    */
+    public function update(Request $request)
+    {
+        $product =$this->findProduct($request);
+        $form = $this->createProductForm($product);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid())
+        {
+            $em = $this->getDoctrine()->getManager();
+            $em -> persist($product);
+            $em -> flush();
+            return $this->redirectToRoute('product_update', ['id'=> $product->getId()]);
+        }
+        return $this->render('Product/edit.html.twig',['form' => $form->createView(),]);
+    }
     
     private function createProductForm(Product $product)
     {

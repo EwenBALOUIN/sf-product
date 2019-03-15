@@ -1,12 +1,13 @@
 {% include 'base.html.twig' %}
 {% block body %}
-{% for product in products %}
 <div class="container">
-    <h1>Products list</h1>
-    <hr>
-    <p class="text-right">
-        <a href="#" class="btn btn-success">New product</a>
-    </p>
+        <h1>Products list</h1>
+        <hr>
+        <p class="text-right">
+            <a href="#" class="btn btn-success">New product</a>
+        </p>
+{% for product in products %}
+
     <table class="table">
         <thead class="thead-light">
             <tr>
@@ -39,8 +40,6 @@
                     {% endif %}
                 </td>
                 <td>
-                    <a href="#" class="btn btn-warning btn-sm">Edit</a>
-                    <a href="#" class="btn btn-danger btn-sm">Delete</a>
                     <a href="#" class="btn btn-warning btn-sm" href="{{ path('product_edit',{'id': product.id}) }}">Edit</a>
                     <a href="#" class="btn btn-danger btn-sm" href="{{ path('product_delete',{'id': product.id}) }}">Delete</a>
                 </td>

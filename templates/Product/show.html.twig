@@ -1,0 +1,101 @@
+{% include 'base.html.twig' %}
+{% block body %}
+<div class="container">
+<h1>Product Details</h1>
+<hr>
+<p class="text-right">
+        <a href="#" class="btn btn-warning btn-sm" href="{{ path('product_edit',{'id': product.id}) }}">Edit</a>
+        <a href="#" class="btn btn-danger btn-sm" href="{{ path('product_delete',{'id': product.id}) }}">Delete</a>
+<table class="table">
+    <thead class="thead-light">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Designation</th>
+            <th scope="col">Reference</th>
+            <th scope="col">Brand</th>
+            <th scope="col">Price</th>
+            <th scope="col">Stock</th>
+            <th scope="col">Active</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    
+    <tbody>
+        <tr>
+            <th scope="row">{{ product.id }}</th>
+            <td>
+                <a href="#">{{ product.designation }}</a>
+            </td>
+            <td>{{ product.reference }}</td>
+            <td>{{ product.brand }}</td>
+            <td>{{ product.price }}€</td>
+            <td>{{ product.stock }}</td>
+            <td>
+                {% if product.active == true %}
+                <span class="badge badge-success">Yes</span>
+                {% else %}
+                <span class="badge badge-danger">No</span>
+                {% endif %}
+            </td>
+            <td>
+                <a href="#" class="btn btn-warning btn-sm">Edit</a>
+                <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                <a href="#" class="btn btn-warning btn-sm" href="{{ path('product_edit',{'id': product.id}) }}">Edit</a>
+                <a href="#" class="btn btn-danger btn-sm" href="{{ path('product_delete',{'id': product.id}) }}">Delete</a>
+            </td>
+        </tr>
+    </div>
+
+    <div class="container">
+            <h1>Product detail</h1>
+            <hr>
+            <p class="text-right">
+                    <a href="#" class="btn btn-warning btn-sm" href="{{ path('product_edit',{'id': product.id}) }}">Edit</a>
+                    <a href="#" class="btn btn-danger btn-sm" href="{{ path('product_delete',{'id': product.id}) }}">Delete</a>
+            </p>
+            <table class="table table-borderless">
+                <tbody>
+                    <tr>
+                        <th scope="row">#</th>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Designation</th>
+                        <td>{{product.designation}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Reference</th>
+                        <td>{{product.reference}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Brand</th>
+                        <td>{{product.brand}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Price</th>
+                        <td>{{product.price}}€</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Stock</th>
+                        <td>{{product.stock}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Active</th>
+                        <td>
+                                {% if product.active == true %}
+                                <span class="badge badge-success">Yes</span>
+                                {% else %}
+                                <span class="badge badge-danger">No</span>
+                                {% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Description</th>
+                        <td>
+                                {{product.decription}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        {% endblock %}
